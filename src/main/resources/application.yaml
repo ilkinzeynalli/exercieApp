@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
+    include:
+      - db
+
+kafka:
+  bootstrapServers: localhost:9092
+  producer:
+    value-serializer: com.ilkinzeynalli.exerciseApp.kafka.serializer.KafkaValueSerializer
+  consumer:
+    group-id: groupId
+    value-deserializer: com.ilkinzeynalli.exerciseApp.kafka.serializer.KafkaValueDeserializer

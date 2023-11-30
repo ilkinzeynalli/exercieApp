@@ -1,0 +1,4 @@
+rootProject.name = 'exerciseApp'
+include 'ms-student'
+include 'ms-course'
+
