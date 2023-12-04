@@ -15,11 +15,18 @@ databaseChangeLog:
               - column:
                   constraints:
                     nullable: false
+                    unique: false
                   name: name
                   type: VARCHAR(255)
               - column:
                   constraints:
                     nullable: false
-                  name: logo
-                  type: VARCHAR(355)
+                    defaultValueBoolean: true
+                  name: status
+                  type: boolean
+              - column:
+                  constraints:
+                    nullable: false
+                  name: company_id
+                  type: BIGINT
             tableName: customers

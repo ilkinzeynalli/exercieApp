@@ -9,7 +9,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 @Slf4j
 public class KafkaConsumerService {
 
-    @KafkaListener(topics = "ms-kafka", groupId = "group_id")// Method
+    //@KafkaListener(topics = "ms-kafka", groupId = "group_id")// Method
     public void consume(TestDto message) throws InterruptedException {
         log.info("message = " + message.toString());
         //Thread.sleep(5000);
