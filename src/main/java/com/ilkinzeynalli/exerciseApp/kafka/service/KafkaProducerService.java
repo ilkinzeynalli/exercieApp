@@ -16,7 +16,7 @@ public class KafkaProducerService {
 
     private final KafkaTemplate<String, TestDto> kafkaTemplate;
 
-    @Scheduled(fixedRate = 1000)
+    //@Scheduled(fixedRate = 1000)
     public void sendProduce(){
         log.info("send produce " + LocalDateTime.now());
         send("ms-kafka","key " + LocalDateTime.now(),"deneme value " + LocalDateTime.now());

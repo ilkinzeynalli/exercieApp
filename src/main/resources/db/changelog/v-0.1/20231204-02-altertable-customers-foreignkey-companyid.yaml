@@ -1,11 +1,13 @@
 databaseChangeLog:
   - changeSet:
-      id: 20231204-03
+      id: 20231204-02
       author: ilkinzeynalli
       changes:
         - addForeignKeyConstraint:
-            baseColumnNames: companyId  # Existing column in the "customers" table
+            baseColumnNames: company_id
             baseTableName: customers
             constraintName: fk_customer_company
-            referencedColumnNames: id  # Referencing the "id" column in the "companies" table
+            referencedColumnNames: id
             referencedTableName: companies
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
