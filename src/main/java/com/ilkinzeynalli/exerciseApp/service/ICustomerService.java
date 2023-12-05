@@ -1,6 +1,6 @@
 package com.ilkinzeynalli.exerciseApp.service;
 
-import com.ilkinzeynalli.exerciseApp.model.Customer;
+import com.ilkinzeynalli.exerciseApp.model.entity.Customer;
 
 import java.util.List;
 
