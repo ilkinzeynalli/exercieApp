@@ -15,10 +15,7 @@ public class CustomerService implements ICustomerService{
     private final CustomerRepository customerRepository;
 
     @Override
-    @Transactional(readOnly = true)
     public List<Customer> getAll() {
-        var data =  customerRepository.findAll();
-
-        return  data;
+        return  customerRepository.findAll();
     }
 }
