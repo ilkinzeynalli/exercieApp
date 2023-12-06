@@ -4,6 +4,12 @@ spring:
     include:
       - db
 
+springdoc:
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true
+
 kafka:
   bootstrapServers: localhost:9092
   producer:
