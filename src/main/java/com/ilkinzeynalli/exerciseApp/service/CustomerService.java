@@ -1,6 +1,7 @@
 package com.ilkinzeynalli.exerciseApp.service;
 
-import com.ilkinzeynalli.exerciseApp.model.entity.Customer;
+import com.ilkinzeynalli.exerciseApp.mapper.CustomerMapper;
+import com.ilkinzeynalli.exerciseApp.model.dto.CustomerDto;
 import com.ilkinzeynalli.exerciseApp.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,10 @@ import java.util.List;
 public class CustomerService implements ICustomerService{
 
     private final CustomerRepository customerRepository;
+    private final CustomerMapper customerMapper;
 
-    @Override
-    public List<Customer> getAll() {
-        return  customerRepository.findAll();
+    @Transactional(readOnly = true)
+    public List<CustomerDto> getAll() {
+        return customerMapper.mapToCustomerDtos(customerRepository.findAll());
     }
 }

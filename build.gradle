@@ -1,7 +1,8 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.2.0'
+	id 'org.springframework.boot' version '3.1.6'
 	id 'io.spring.dependency-management' version '1.1.4'
+
 }
 
 group = 'com.ilkinzeynalli'
@@ -32,25 +33,29 @@ dependencies {
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE'
 	implementation 'org.springframework.security:spring-security-test'
 
-	/*Kafka*/
-	implementation 'org.springframework.kafka:spring-kafka'
-
-	/*Liquibase*/
-	implementation "org.liquibase:liquibase-core"
-
-	/*Swagger*/
-	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.0.3'
-
-	/*Lombok*/
+    /*Lombok*/
 	compileOnly 'org.projectlombok:lombok:1.18.20'
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'
 	testCompileOnly 'org.projectlombok:lombok:1.18.20'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
 
-	runtimeOnly "mysql:mysql-connector-java:5.1.46"
+	/*Mapper*/
+	implementation "org.mapstruct:mapstruct:1.4.2.Final"
+	annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
 
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+
+	/*Kafka*/
+	implementation 'org.springframework.kafka:spring-kafka'
+
+	/*Liquibase*/
+	implementation 'org.liquibase:liquibase-core'
+
+	/*Swagger*/
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.0.3'
+
+
+	runtimeOnly "mysql:mysql-connector-java:8.0.28"
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

@@ -1,6 +1,8 @@
 package com.ilkinzeynalli.exerciseApp.model.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,10 +19,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = Customer.TABLE_NAME)
+@Table(name = "customers")
 public class Customer {
-
-    public static final String TABLE_NAME = "customers";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,18 +28,7 @@ public class Customer {
     private String name;
     private boolean status;
 
-
-    @ManyToOne
-    @JoinColumn(name = "company_id")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id", nullable = false)
     private Company company;
-
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", status=" + status +
-                '}';
-    }
 }
