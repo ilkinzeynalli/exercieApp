@@ -1,15 +1,15 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.1.6'
-	id 'io.spring.dependency-management' version '1.1.4'
+	id 'org.springframework.boot' version "${springBootVersion}"
+	id 'io.spring.dependency-management' version "${springDependencyManagement}"
 
 }
 
-group = 'com.ilkinzeynalli'
-version = '0.0.1-SNAPSHOT'
+group = "${group}"
+version = "${version}"
 
 java {
-	sourceCompatibility = '17'
+	sourceCompatibility = "${javaSourceCompatibility}"
 }
 
 configurations {
@@ -23,44 +23,48 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+	implementation "org.springframework.boot:spring-boot-starter-validation"
 
 	/*Security*/
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE'
-	implementation 'org.springframework.security:spring-security-test'
+	implementation "org.springframework.boot:spring-boot-starter-security"
+	implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+	implementation "org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE"
+	implementation "org.springframework.security:spring-security-test"
 
     /*Lombok*/
-	compileOnly 'org.projectlombok:lombok:1.18.20'
-	annotationProcessor 'org.projectlombok:lombok:1.18.20'
-	testCompileOnly 'org.projectlombok:lombok:1.18.20'
-	testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
+	compileOnly "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+	testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+	testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
 	/*Mapper*/
-	implementation "org.mapstruct:mapstruct:1.4.2.Final"
-	annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
+	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
+	implementation "org.modelmapper:modelmapper:${modelmapperVersion}"
 
 
 	/*Kafka*/
-	implementation 'org.springframework.kafka:spring-kafka'
+	implementation "org.springframework.kafka:spring-kafka"
 
 	/*Liquibase*/
-	implementation 'org.liquibase:liquibase-core'
+	implementation "org.liquibase:liquibase-core"
 
 	/*Swagger*/
-	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.0.3'
+	implementation group: "org.springdoc", name: "springdoc-openapi-starter-webmvc-ui", version: "${springdocOpenapiStarterWebmvcUI}"
 
+	runtimeOnly "mysql:mysql-connector-java:${mysqlConnectorJavaVersion}"
 
-	runtimeOnly "mysql:mysql-connector-java:8.0.28"
-
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.kafka:spring-kafka-test'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
+	testImplementation "org.springframework.kafka:spring-kafka-test"
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+ext {
+	springBootVersion = '2.5.5'
 }
