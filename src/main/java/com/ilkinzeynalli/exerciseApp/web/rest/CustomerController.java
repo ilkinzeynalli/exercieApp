@@ -7,7 +7,7 @@ import com.ilkinzeynalli.exerciseApp.model.dto.CustomerResponseDto;
 import com.ilkinzeynalli.exerciseApp.model.entity.Customer;
 import com.ilkinzeynalli.exerciseApp.service.CustomerService;
 import com.ilkinzeynalli.exerciseApp.service.ICustomerService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
