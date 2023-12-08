@@ -30,13 +30,13 @@ public class KafkaProducerService {
 
         //var future = kafkaTemplate.send(topicName, key, value);
 
-        future.whenComplete((sendResult, exception) -> {
-            if (exception != null) {
-                future.completeExceptionally(exception);
-            } else {
-                future.complete(sendResult);
-            }
-            log.info("Task status send to Kafka topic : "+ value);
-        });
+//        future.whenComplete((sendResult, exception) -> {
+//            if (exception != null) {
+//                future.completeExceptionally(exception);
+//            } else {
+//                future.complete(sendResult);
+//            }
+//            log.info("Task status send to Kafka topic : "+ value);
+//        });
     }
 }
