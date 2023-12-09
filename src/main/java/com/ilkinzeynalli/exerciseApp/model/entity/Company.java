@@ -13,7 +13,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
 import java.util.List;
 
 @Data
@@ -22,17 +21,16 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "companies")
-public class Company implements Serializable {
-
-    private static final String TABLE_NAME = "companies";
+public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
+
     private boolean status;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
     private List<Customer> customers;
 }

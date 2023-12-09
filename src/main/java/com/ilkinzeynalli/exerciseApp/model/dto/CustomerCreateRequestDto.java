@@ -3,10 +3,10 @@ package com.ilkinzeynalli.exerciseApp.model.dto;
 import lombok.Data;
 
 @Data
-public class CustomerResponseDto {
+public class CustomerCreateRequestDto {
 
     private Long id;
     private String name;
     private boolean status;
-    private CustomerCreatorDto customer;
+    private CompanyRequestDto company;
 }

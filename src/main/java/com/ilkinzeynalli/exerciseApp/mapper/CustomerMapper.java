@@ -1,6 +1,7 @@
 package com.ilkinzeynalli.exerciseApp.mapper;
 
 import com.ilkinzeynalli.exerciseApp.model.dto.CustomerDto;
+import com.ilkinzeynalli.exerciseApp.model.dto.CustomerSearchDto;
 import com.ilkinzeynalli.exerciseApp.model.entity.Customer;
 import org.mapstruct.Mapper;
 
@@ -11,6 +12,5 @@ public interface CustomerMapper {
 
     CustomerDto mapToCustomerDto(Customer customer);
 
-    List<CustomerDto> mapToCustomerDtoList(List<Customer> customer);
-
+    CustomerSearchDto mapToCustomeSearchDto(Customer customer);
 }

@@ -1,16 +1,21 @@
 package com.ilkinzeynalli.exerciseApp.service;
 
 import com.ilkinzeynalli.exerciseApp.model.dto.CustomerDto;
-import com.ilkinzeynalli.exerciseApp.model.dto.CustomerRequestDto;
-import com.ilkinzeynalli.exerciseApp.model.dto.CustomerResponseDto;
+import com.ilkinzeynalli.exerciseApp.model.dto.CustomerSearchDto;
+import com.ilkinzeynalli.exerciseApp.model.dto.CustomerCreateRequestDto;
+import com.ilkinzeynalli.exerciseApp.model.dto.CustomerUpdateRequestDto;
 
 import java.util.List;
 
 public interface ICustomerService {
 
-     CustomerResponseDto create(CustomerRequestDto customerRequestDto);
+    List<CustomerSearchDto> search();
 
-     List<CustomerDto> getAll();
+    CustomerDto create(CustomerCreateRequestDto customerCreateRequestDto);
 
+    CustomerDto getById(Long id);
 
+    CustomerDto update(CustomerUpdateRequestDto customerUpdateRequest);
+
+    void delete(Long id);
 }
