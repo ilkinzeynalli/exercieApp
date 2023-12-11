@@ -20,7 +20,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.ilkinzeynalli.exerciseApp.web.rest"))
+                .apis(RequestHandlerSelectors.basePackage("com.ilkinzeynalli.exerciseapp.web.rest"))
                 .paths(PathSelectors.any())
                 .build().apiInfo(apiInfoMetaData());
     }

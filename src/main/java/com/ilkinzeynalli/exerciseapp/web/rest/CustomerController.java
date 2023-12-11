@@ -31,10 +31,10 @@ public class CustomerController {
 
     private final ICustomerService customerService;
 
-//    @GetMapping("/search")
-//    public ResponseEntity<List<CustomerSearchDto>> search(Pageable pageable) {
-//        return ResponseEntity.ok(customerService.search(pageable));
-//    }
+    @GetMapping("/search")
+    public ResponseEntity<List<CustomerSearchDto>> search() {
+        return ResponseEntity.ok(customerService.search());
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<CustomerDto> getById(@PathVariable Long id) {

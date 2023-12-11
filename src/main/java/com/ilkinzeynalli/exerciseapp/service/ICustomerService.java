@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ICustomerService {
 
-    List<CustomerSearchDto> search(Pageable pageable);
+    List<CustomerSearchDto> search();
 
     CustomerDto create(CustomerCreateRequestDto customerCreateRequestDto);
 

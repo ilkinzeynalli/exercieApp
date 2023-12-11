@@ -27,7 +27,7 @@ public class CustomerService implements ICustomerService {
     private final ModelMapper modelMapper;
 
     @Transactional(readOnly = true)
-    public List<CustomerSearchDto> search(Pageable pageable) {
+    public List<CustomerSearchDto> search() {
         return customerRepository.findAll((root, query, builder) ->
             builder.equal(root.get("name"), "customer 3")
         ).stream().map(item ->
