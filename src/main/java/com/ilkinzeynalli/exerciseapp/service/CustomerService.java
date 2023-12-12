@@ -13,6 +13,8 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.awt.print.Pageable;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +28,9 @@ public class CustomerService implements ICustomerService {
 
     @Transactional(readOnly = true)
     public List<CustomerSearchDto> search() {
-        return customerRepository.findAll().stream().map(item ->
+        return customerRepository.findAll((root, query, builder) ->
+            builder.equal(root.get("name"), "customer 3")
+        ).stream().map(item ->
             customerMapper.mapToCustomeSearchDto(item)
         ).collect(Collectors.toList());
     }
