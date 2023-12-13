@@ -7,15 +7,19 @@ import com.ilkinzeynalli.exerciseapp.model.dto.CustomerCreateRequestDto;
 import com.ilkinzeynalli.exerciseapp.model.dto.CustomerUpdateRequestDto;
 import com.ilkinzeynalli.exerciseapp.model.entity.Customer;
 import com.ilkinzeynalli.exerciseapp.repository.CustomerRepository;
+import com.ilkinzeynalli.exerciseapp.specification.SearchCustomerCriteria;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.awt.print.Pageable;
-import java.time.LocalDate;
+import javax.persistence.criteria.Predicate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,9 +31,20 @@ public class CustomerService implements ICustomerService {
     private final ModelMapper modelMapper;
 
     @Transactional(readOnly = true)
-    public List<CustomerSearchDto> search() {
-        return customerRepository.findAll((root, query, builder) ->
-            builder.equal(root.get("name"), "customer 3")
+    public List<CustomerSearchDto> search(SearchCustomerCriteria searchCustomerCriteria, Pageable pageable) {
+        return customerRepository.findAll((root, query, builder) -> {
+            List<Predicate> predicates = new ArrayList<>();
+            if(Objects.nonNull(searchCustomerCriteria.getName())){
+                predicates.add(builder.equal(root.get("name"), searchCustomerCriteria.getName()));
+            }
+
+            if(Objects.nonNull(searchCustomerCriteria.getCompanyName())){
+                predicates.add(builder.equal(root.join("company").get("name"),
+                    searchCustomerCriteria.getCompanyName()));
+            }
+
+            return  builder.or(predicates.toArray(new Predicate[0]));
+            }, pageable
         ).stream().map(item ->
             customerMapper.mapToCustomeSearchDto(item)
         ).collect(Collectors.toList());
