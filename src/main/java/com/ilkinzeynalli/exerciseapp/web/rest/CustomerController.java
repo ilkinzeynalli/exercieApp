@@ -8,7 +8,9 @@ import com.ilkinzeynalli.exerciseapp.service.ICustomerService;
 
 import javax.validation.Valid;
 
+import com.ilkinzeynalli.exerciseapp.specification.SearchCustomerCriteria;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 @RestController
@@ -32,8 +33,8 @@ public class CustomerController {
     private final ICustomerService customerService;
 
     @GetMapping("/search")
-    public ResponseEntity<List<CustomerSearchDto>> search() {
-        return ResponseEntity.ok(customerService.search());
+    public ResponseEntity<List<CustomerSearchDto>> search(SearchCustomerCriteria customerCriteria, Pageable pageable) {
+        return ResponseEntity.ok(customerService.search(customerCriteria, pageable));
     }
 
     @GetMapping("/{id}")
