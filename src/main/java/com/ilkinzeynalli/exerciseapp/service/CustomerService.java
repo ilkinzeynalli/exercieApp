@@ -13,10 +13,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.Predicate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -29,6 +31,8 @@ public class CustomerService implements ICustomerService {
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
     private final ModelMapper modelMapper;
+    private final KafkaTemplate<String, CustomerDto> kafkaTemplate;
+
 
     @Transactional(readOnly = true)
     public List<CustomerSearchDto> search(SearchCustomerCriteria searchCustomerCriteria, Pageable pageable) {
@@ -85,6 +89,9 @@ public class CustomerService implements ICustomerService {
     public CustomerDto create(CustomerCreateRequestDto customerCreateRequestDto) {
         Customer customer = modelMapper.map(customerCreateRequestDto, Customer.class);
 
-        return modelMapper.map(customerRepository.save(customer), CustomerDto.class);
+        CustomerDto customerDto = modelMapper.map(customerRepository.save(customer), CustomerDto.class);
+        kafkaTemplate.send("ms-kafka", "key " + LocalDateTime.now(), customerDto);
+
+        return customerDto;
     }
 }

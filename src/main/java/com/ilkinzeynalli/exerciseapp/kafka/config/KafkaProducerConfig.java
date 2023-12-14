@@ -1,7 +1,7 @@
 package com.ilkinzeynalli.exerciseapp.kafka.config;
 
-import com.ilkinzeynalli.exerciseapp.kafka.dto.TestDto;
 import com.ilkinzeynalli.exerciseapp.kafka.serializer.KafkaValueSerializer;
+import com.ilkinzeynalli.exerciseapp.model.dto.CustomerDto;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,12 +34,12 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public ProducerFactory<String, TestDto> producerFactory() {
+    public ProducerFactory<String, CustomerDto> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
     @Bean
-    public KafkaTemplate<String, TestDto> kafkaTemplate() {
+    public KafkaTemplate<String, CustomerDto> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }
