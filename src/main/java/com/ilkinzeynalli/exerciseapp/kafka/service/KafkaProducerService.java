@@ -4,6 +4,7 @@ import com.ilkinzeynalli.exerciseapp.kafka.dto.TestDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,9 +16,9 @@ public class KafkaProducerService {
 
     private final KafkaTemplate<String, TestDto> kafkaTemplate;
 
-    //@Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 1000)
     public void sendProduce() {
-        log.info("send produce " + LocalDateTime.now());
+        log.info("send produce 1 " + LocalDateTime.now());
         send("ms-kafka", "key " + LocalDateTime.now(), "deneme value " + LocalDateTime.now());
     }
 
