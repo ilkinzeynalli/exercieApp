@@ -1,4 +1,4 @@
-package com.ilkinzeynalli.exerciseapp.model.entity;
+package com.example.mscustomer.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

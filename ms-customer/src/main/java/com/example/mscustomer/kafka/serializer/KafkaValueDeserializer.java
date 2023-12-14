@@ -1,7 +1,7 @@
-package com.ilkinzeynalli.exerciseapp.kafka.serializer;
+package com.example.mscustomer.kafka.serializer;
 
+import com.example.mscustomer.model.dto.CustomerDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ilkinzeynalli.exerciseapp.model.dto.CustomerDto;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Deserializer;
 
