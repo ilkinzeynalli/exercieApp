@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.ilkinzeynalli.exerciseApp.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.ilkinzeynalli.exerciseApp.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kafka-ms.main.iml" filepath="$PROJECT_DIR$/.idea/modules/kafka-ms.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kafka-ms.test.iml" filepath="$PROJECT_DIR$/.idea/modules/kafka-ms.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ms-customer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ms-customer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ms-main.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ms-main.main.iml" />
     </modules>
   </component>
 </project>

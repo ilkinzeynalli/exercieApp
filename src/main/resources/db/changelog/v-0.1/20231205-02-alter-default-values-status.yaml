@@ -1,7 +1,0 @@
-databaseChangeLog:
-  - changeSet:
-      id: 20231205-02
-      author: zeynalliit
-      changes:
-        - sql:
-            sql: "ALTER TABLE customers MODIFY status INT DEFAULT 1;"
