@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20231229-01
+      author: zeynalliit
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: customer_pk
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                    defaultValueBoolean: true
+                  name: status
+                  type: boolean
+              - column:
+                  constraints:
+                    nullable: false
+                  name: company_id
+                  type: BIGINT
+            tableName: customers
