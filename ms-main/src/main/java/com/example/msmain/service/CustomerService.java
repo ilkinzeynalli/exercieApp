@@ -9,6 +9,7 @@ import com.example.msmain.model.entity.Customer;
 import com.example.msmain.repository.CustomerRepository;
 import com.example.msmain.specification.SearchCustomerCriteria;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.modelmapper.ModelMapper;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Pageable;
@@ -31,7 +32,6 @@ public class CustomerService implements ICustomerService {
     private final CustomerMapper customerMapper;
     private final ModelMapper modelMapper;
     private final KafkaTemplate<String, CustomerDto> kafkaTemplate;
-
 
     @Transactional(readOnly = true)
     public List<CustomerSearchDto> search(SearchCustomerCriteria searchCustomerCriteria, Pageable pageable) {

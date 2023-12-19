@@ -1,8 +1,9 @@
 spring:
   profiles:
-    active: ${ACTIVE_PROFILE:local}
+    active: ${ACTIVE_PROFILE:dev}
     include:
       - db
+      - cloud
   mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
@@ -10,6 +11,7 @@ spring:
   documentation:
     swagger-ui:
       enabled=true:
+
 kafka:
   bootstrapServers: localhost:9092
   producer:

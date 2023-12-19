@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ms-customer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ms-customer.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ms-main.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ms-main.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ms-main.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ms-main.test.iml" />
     </modules>
   </component>
 </project>

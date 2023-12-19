@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    vault:
+      token: root-token
+      scheme: http  # or https, depending on your Vault setup
+      host: localhost
+      port: 8200
+      authentication: TOKEN
+      kv:
+        enabled: true
+        backend: secret
+  config:
+    import:
+      - "vault:/secret/dev"
