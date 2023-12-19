@@ -2,7 +2,7 @@ spring:
   cloud:
     vault:
       token: root-token
-      scheme: http  # or https, depending on your Vault setup
+      scheme: http
       host: localhost
       port: 8200
       authentication: TOKEN
@@ -11,4 +11,4 @@ spring:
         backend: secret
   config:
     import:
-      - "vault:/secret/dev"
+      - "vault:/secret/${spring.project.name}/${spring.application.name}/${spring.profiles.active}"

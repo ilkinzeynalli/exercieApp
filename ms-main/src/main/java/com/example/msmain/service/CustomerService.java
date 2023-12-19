@@ -9,8 +9,8 @@ import com.example.msmain.model.entity.Customer;
 import com.example.msmain.repository.CustomerRepository;
 import com.example.msmain.specification.SearchCustomerCriteria;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Pageable;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -33,8 +33,12 @@ public class CustomerService implements ICustomerService {
     private final ModelMapper modelMapper;
     private final KafkaTemplate<String, CustomerDto> kafkaTemplate;
 
+    @Value("${deneme.x}")
+    private String deneme;
+
     @Transactional(readOnly = true)
     public List<CustomerSearchDto> search(SearchCustomerCriteria searchCustomerCriteria, Pageable pageable) {
+        var x = deneme;
         return customerRepository.findAll((root, query, builder) -> {
             List<Predicate> predicates = new ArrayList<>();
             if(Objects.nonNull(searchCustomerCriteria.getName())){

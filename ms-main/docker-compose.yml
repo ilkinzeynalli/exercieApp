@@ -60,6 +60,10 @@ services:
       VAULT_ADDR: "http://localhost:8200"
     cap_add:
       - IPC_LOCK
+  consul:
+    image: consul:1.11.0
+    ports:
+      - "8500:8500"
 networks:
   broker-kafka:
     driver: bridge

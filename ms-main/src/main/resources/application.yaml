@@ -1,6 +1,10 @@
 spring:
+  project:
+    name: exerciseApp
+  application:
+    name: ms-main
   profiles:
-    active: ${ACTIVE_PROFILE:dev}
+    active: ${ACTIVE_PROFILE:local}
     include:
       - db
       - cloud
