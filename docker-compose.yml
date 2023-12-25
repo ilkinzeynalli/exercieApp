@@ -1,5 +1,17 @@
 version: '3'
 services:
+  consul:
+    hostname: consul
+    image: consul:1.10.4
+    container_name: consul
+    ports:
+      - 8500:8500
+  redis:
+    image: redis
+    volumes:
+      - db_data:/var/lib/redis
+    ports:
+      - 6379:6379
   db:
     platform: linux/amd64
     hostname: mysql
@@ -60,6 +72,7 @@ services:
       VAULT_ADDR: "http://localhost:8200"
     cap_add:
       - IPC_LOCK
+
 networks:
   broker-kafka:
     driver: bridge

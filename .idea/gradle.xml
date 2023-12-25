@@ -20,6 +20,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ms-cloud" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/ms-cloud" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/ms-customer" />
         <option name="modules">
           <set>
@@ -32,6 +40,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/ms-main" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ms-vault-consul" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/ms-vault-consul" />
           </set>
         </option>
       </GradleProjectSettings>
