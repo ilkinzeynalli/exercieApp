@@ -1,0 +1,26 @@
+spring:
+  cloud:
+#    vault:
+#      token: root-token
+#      scheme: http  # or https, depending on your Vault setup
+#      host: localhost
+#      port: 8200
+#      authentication: TOKEN
+#      kv:
+#        enabled: true
+#        backend: secret
+    consul:
+      scheme: http
+      host: localhost
+      port: 8500
+      config:
+        format: yaml
+        profile-separator: "/"
+        prefixes:
+          #- config/ms-vault-consul/application
+          #- config/ms-vault-consul/dev
+        enabled: false
+  config:
+    import:
+      #- "vault:/secret/ms-vault-consul/${spring.profiles.active}"
+      - "consul:"

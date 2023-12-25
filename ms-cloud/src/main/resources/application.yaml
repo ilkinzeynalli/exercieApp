@@ -1,0 +1,15 @@
+spring:
+  config:
+    import:
+      - "consul:"
+
+  consul:
+    scheme: http
+    host: localhost
+    port: 8500
+    config:
+      format: yaml
+      profile-separator: "-"
+      prefixes:
+        - config/exercieApp/application
+        - config/exercieApp/ms-cloud

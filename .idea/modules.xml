@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ms-customer.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ms-customer.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ms-customer.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ms-customer.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ms-main.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ms-main.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ms-main.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ms-main.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ms-vault-consul.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ms-vault-consul.main.iml" />
     </modules>
   </component>
 </project>
